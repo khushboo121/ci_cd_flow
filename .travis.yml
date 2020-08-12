@@ -10,11 +10,5 @@ after_success:
   - docker push $DOCKER_USER/ci_cd:$TRAVIS_BUILD_NUMBER
   - docker tag local/ci_cd $DOCKER_USER/ci_cd:latest
   - docker push $DOCKER_USER/ci_cd:latest
-
-deploy:
-  provider: script
-  script: 
-    - docker run -d -p 5000:5000 $DOCKER_USER/ci_cd:latest
-    - curl localhost:5000
-  on:
-    branch: master
+  - docker run -d -p 5000:5000 $DOCKER_USER/ci_cd:latest
+  - curl localhost:5000
