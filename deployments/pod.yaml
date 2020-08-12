@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ci-cd
+spec:
+  containers:
+    - name: ci-cd
+      image: dokcerkumari/ci_cd
+  imagePullSecrets:
+    - name: myregistrykey
