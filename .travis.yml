@@ -5,7 +5,7 @@ service: docker
 script:
   - docker build -t local/ci_cd .
 after_success:
-  - docker login -u $DOCKER_USER -p$DOCKER_PASSWORD
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker tag local/ci_cd $DOCKER_USER/ci_cd:$TRAVIS_BUILD_NUMBER
   - docker push $DOCKER_USER/ci_cd:$TRAVIS_BUILD_NUMBER
   - docker tag local/ci_cd $DOCKER_USER/ci_cd:latest
