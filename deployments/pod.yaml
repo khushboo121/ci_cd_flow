@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
     - name: ci-cd
-      image: dokcerkumari/ci_cd
+      image: dockerkumari/ci_cd
   imagePullSecrets:
     - name: myregistrykey
