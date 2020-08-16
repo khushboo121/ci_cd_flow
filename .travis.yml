@@ -11,5 +11,4 @@ after_success:
   - docker tag local/ci_cd $DOCKER_USERNAME/ci_cd:latest
   - docker push $DOCKER_USERNAME/ci_cd:latest
   - docker run -d -p 5000:5000 $DOCKER_USERNAME/ci_cd:latest
-  - curl localhost:5000
   - docker run $DOCKER_USERNAME/ci_cd:latest test
